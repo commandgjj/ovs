@@ -27,7 +27,7 @@ init:
 
     Invoke-WebRequest $source -OutFile $destination
 
-    $source = "https://indy.fulgan.com/SSL/openssl-1.0.2u-x64_86-win64.zip"
+    $source = "https://www.totalcommander.ch/win/tools/openssl-1.0.2u-x64_86-win64.zip"
 
     $destination = "C:\ovs-build-downloads\ssl\openssl-1.0.2u-x64_86-win64.zip"
 
