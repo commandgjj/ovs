@@ -27,7 +27,6 @@ windows_installer: all
 	cp -f $(top_srcdir)/ovsdb/ovsdb-tool.pdb windows/ovs-windows-installer/Symbols/
 #Third party files needed by the installer
 	cp -f $(PTHREAD_WIN32_DIR_DLL_WIN_FORM)/*.dll windows/ovs-windows-installer/Binaries/
-	cp -f "/c/Program Files (x86)/Common Files/Merge Modules/Microsoft_VC120_CRT_x86.msm" windows/ovs-windows-installer/Redist/Microsoft_VC120_CRT_x86.msm
 #Forwarding extension files needed for the installer
 	cp -f $(top_srcdir)/datapath-windows/x64/Win10$(VSTUDIO_CONFIG)/package/ovsext.cat windows/ovs-windows-installer/Driver/Win10/ovsext.cat
 	cp -f $(top_srcdir)/datapath-windows/x64/Win10$(VSTUDIO_CONFIG)/package/ovsext.inf windows/ovs-windows-installer/Driver/Win10/ovsext.inf
