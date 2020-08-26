@@ -15,6 +15,8 @@ init:
 
     mkdir C:\ovs-build-downloads\ssl
 
+    mkdir C:\ovs-build-downloads\vcredist
+
     $source = "https://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip"
 
     $destination = "C:\pthreads-win32\pthreads-win32.zip"
@@ -35,7 +37,7 @@ init:
 
     $source = "https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe"
 
-    $destination = "C:\openvswitch_compile\windows\ovs-windows-installer\redist\vcredist_x64.exe"
+    $destination = "C:\ovs-build-downloads\vcredist\vcredist_x64.exe"
 
     Invoke-WebRequest $source -OutFile $destination
 
@@ -68,6 +70,7 @@ build_script:
 - cp C:\ovs-build-downloads\ssl\libeay32.dll C:\openvswitch_compile\windows\ovs-windows-installer\Binaries
 - cp C:\ovs-build-downloads\ssl\ssleay32.dll C:\openvswitch_compile\windows\ovs-windows-installer\Services
 - cp C:\ovs-build-downloads\ssl\ssleay32.dll C:\openvswitch_compile\windows\ovs-windows-installer\Binaries
+- cp C:\ovs-build-downloads\vcredist\vcredist_x64.exe C:\openvswitch_compile\windows\ovs-windows-installer\Redist
 - C:\MinGW\msys\1.0\bin\bash -lc "cd /c/openvswitch_compile && make windows_installer"
 - copy c:\openvswitch_compile\windows\ovs-windows-installer\bin\%CONFIGURATION%\OpenvSwitch.msi OpenvSwitch-%CONFIGURATION%.msi
 
